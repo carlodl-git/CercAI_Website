@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     q: "Lavorate solo a Padova o in tutta Italia?",
-    a: "CercAI ha sede a Padova ma opera con clienti in tutta Italia. Il GEO è un servizio digitale che non richiede presenza fisica, quindi possiamo servire aziende ovunque nel paese.",
+    a: "RicercAI ha sede a Padova ma opera con clienti in tutta Italia. Il GEO è un servizio digitale che non richiede presenza fisica, quindi possiamo servire aziende ovunque nel paese.",
   },
   {
     q: "Quanto costa un servizio GEO?",
@@ -65,7 +65,7 @@ export default function Home() {
               Ti trovano?
             </h1>
             <p className="mt-6 text-lg md:text-xl text-muted leading-relaxed max-w-2xl">
-              CercAI ottimizza la presenza del tuo brand nelle risposte di
+              RicercAI ottimizza la presenza del tuo brand nelle risposte di
               ChatGPT, Gemini, Claude e Perplexity. Perché nel 2026 non basta
               essere su Google: devi essere nella risposta dell&apos;AI.
             </p>
@@ -147,7 +147,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-              Come funziona CercAI
+              Come funziona RicercAI
             </h2>
             <p className="mt-4 text-lg text-muted">
               Tre fasi per portare il tuo brand nelle risposte AI
@@ -258,7 +258,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-              Perché scegliere CercAI
+              Perché scegliere RicercAI
             </h2>
           </div>
 
@@ -303,7 +303,7 @@ export default function Home() {
             {[
               {
                 quote:
-                  "Dopo 3 mesi di lavoro con CercAI, il nostro brand viene citato da ChatGPT nel 70% delle query di settore. Un risultato incredibile.",
+                  "Dopo 3 mesi di lavoro con RicercAI, il nostro brand viene citato da ChatGPT nel 70% delle query di settore. Un risultato incredibile.",
                 name: "Marco R.",
                 role: "CEO, SaaS Company — Milano",
               },

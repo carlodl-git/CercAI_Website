@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Blog GEO — Guide e Strategie di Generative Engine Optimization",
   description:
     "Approfondimenti su GEO, AI Search e marketing digitale. Guide pratiche per apparire nelle risposte di ChatGPT, Gemini e Claude.",
-  alternates: { canonical: "https://cercai.it/blog" },
+  alternates: { canonical: "https://ricercai.it/blog" },
 };
 
 export default function BlogPage() {

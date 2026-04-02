@@ -20,13 +20,13 @@ export async function generateMetadata({
   return {
     title: post.title,
     description: post.excerpt,
-    alternates: { canonical: `https://cercai.it/blog/${post.slug}` },
+    alternates: { canonical: `https://ricercai.it/blog/${post.slug}` },
     openGraph: {
       type: "article",
       title: post.title,
       description: post.excerpt,
       publishedTime: post.date,
-      authors: ["CercAI"],
+      authors: ["RicercAI"],
     },
   };
 }
@@ -48,13 +48,13 @@ export default async function BlogPostPage({
     datePublished: post.date,
     author: {
       "@type": "Organization",
-      name: "CercAI",
-      url: "https://cercai.it",
+      name: "RicercAI",
+      url: "https://ricercai.it",
     },
     publisher: {
       "@type": "Organization",
-      name: "CercAI",
-      url: "https://cercai.it",
+      name: "RicercAI",
+      url: "https://ricercai.it",
     },
   };
 
@@ -66,19 +66,19 @@ export default async function BlogPostPage({
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://cercai.it",
+        item: "https://ricercai.it",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Blog",
-        item: "https://cercai.it/blog",
+        item: "https://ricercai.it/blog",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: post.title,
-        item: `https://cercai.it/blog/${post.slug}`,
+        item: `https://ricercai.it/blog/${post.slug}`,
       },
     ],
   };
@@ -215,7 +215,7 @@ export default async function BlogPostPage({
               {post.excerpt}
             </p>
             <div className="mt-6 flex items-center gap-4 text-sm text-muted">
-              <span>CercAI</span>
+              <span>RicercAI</span>
               <span>&middot;</span>
               <time dateTime={post.date}>
                 {new Date(post.date).toLocaleDateString("it-IT", {

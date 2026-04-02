@@ -4,8 +4,8 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Servizi GEO — Generative Engine Optimization",
   description:
-    "Scopri i servizi GEO di CercAI: Audit AI, Monitoring delle citazioni, Content Optimization e Agent Readiness. Portiamo il tuo brand nelle risposte di ChatGPT, Gemini e Claude.",
-  alternates: { canonical: "https://cercai.it/servizi" },
+    "Scopri i servizi GEO di RicercAI: Audit AI, Monitoring delle citazioni, Content Optimization e Agent Readiness. Portiamo il tuo brand nelle risposte di ChatGPT, Gemini e Claude.",
+  alternates: { canonical: "https://ricercai.it/servizi" },
 };
 
 const services = [

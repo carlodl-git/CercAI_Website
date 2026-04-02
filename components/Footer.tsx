@@ -8,7 +8,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <span className="text-xl font-bold tracking-tight">
-              Cerc<span className="text-teal-400">AI</span>
+              Ricerca<span className="text-teal-400">AI</span>
             </span>
             <p className="mt-3 text-sm text-gray-400 leading-relaxed">
               La prima agenzia italiana specializzata in Generative Engine Optimization.
@@ -49,8 +49,8 @@ export default function Footer() {
             <address className="not-italic space-y-2 text-sm text-gray-300">
               <p>Padova, Italia</p>
               <p>
-                <a href="mailto:info@cercai.it" className="hover:text-white transition-colors">
-                  info@cercai.it
+                <a href="mailto:info@ricercai.it" className="hover:text-white transition-colors">
+                  info@ricercai.it
                 </a>
               </p>
               <p>
@@ -64,7 +64,7 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-gray-500">
-            &copy; {new Date().getFullYear()} CercAI S.r.l. &mdash; P.IVA 05XXXXXXXX &mdash; Padova, Italia
+            &copy; {new Date().getFullYear()} RicercAI S.r.l. &mdash; P.IVA 05XXXXXXXX &mdash; Padova, Italia
           </p>
           <div className="flex gap-6">
             <Link href="/privacy" className="text-xs text-gray-500 hover:text-gray-300 transition-colors">

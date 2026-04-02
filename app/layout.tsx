@@ -15,13 +15,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://cercai.it"),
+  metadataBase: new URL("https://ricercai.it"),
   title: {
-    default: "CercAI — Agenzia GEO Italia | Generative Engine Optimization",
-    template: "%s | CercAI",
+    default: "RicercAI — Agenzia GEO Italia | Generative Engine Optimization",
+    template: "%s | RicercAI",
   },
   description:
-    "CercAI è la prima agenzia italiana specializzata in GEO (Generative Engine Optimization). Portiamo il tuo brand nelle risposte di ChatGPT, Gemini, Claude e Perplexity. Sede a Padova, operativi in tutta Italia.",
+    "RicercAI è la prima agenzia italiana specializzata in GEO (Generative Engine Optimization). Portiamo il tuo brand nelle risposte di ChatGPT, Gemini, Claude e Perplexity. Sede a Padova, operativi in tutta Italia.",
   keywords: [
     "GEO",
     "Generative Engine Optimization",
@@ -31,22 +31,22 @@ export const metadata: Metadata = {
     "ChatGPT marketing",
     "visibilità AI",
     "SEO AI",
-    "CercAI",
+    "RicercAI",
   ],
-  authors: [{ name: "CercAI" }],
-  creator: "CercAI",
+  authors: [{ name: "RicercAI" }],
+  creator: "RicercAI",
   openGraph: {
     type: "website",
     locale: "it_IT",
-    url: "https://cercai.it",
-    siteName: "CercAI",
-    title: "CercAI — Agenzia GEO Italia | Generative Engine Optimization",
+    url: "https://ricercai.it",
+    siteName: "RicercAI",
+    title: "RicercAI — Agenzia GEO Italia | Generative Engine Optimization",
     description:
       "Portiamo il tuo brand nelle risposte di ChatGPT, Gemini, Claude e Perplexity. La prima agenzia GEO specializzata in Italia.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "CercAI — Agenzia GEO Italia",
+    title: "RicercAI — Agenzia GEO Italia",
     description:
       "Portiamo il tuo brand nelle risposte di ChatGPT, Gemini, Claude e Perplexity.",
   },
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://cercai.it",
+    canonical: "https://ricercai.it",
   },
 };
 
@@ -71,13 +71,13 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://cercai.it",
-    name: "CercAI",
+    "@id": "https://ricercai.it",
+    name: "RicercAI",
     description:
       "Prima agenzia italiana specializzata in GEO (Generative Engine Optimization). Ottimizziamo la presenza dei brand nelle risposte dei modelli AI.",
-    url: "https://cercai.it",
+    url: "https://ricercai.it",
     telephone: "+390491234567",
-    email: "info@cercai.it",
+    email: "info@ricercai.it",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Padova",

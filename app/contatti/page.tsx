@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contatti — Richiedi un GEO Audit Gratuito",
   description:
-    "Contatta CercAI per un audit gratuito della tua presenza AI. Scopri come il tuo brand appare su ChatGPT, Gemini e Claude. Sede a Padova, operativi in tutta Italia.",
-  alternates: { canonical: "https://cercai.it/contatti" },
+    "Contatta RicercAI per un audit gratuito della tua presenza AI. Scopri come il tuo brand appare su ChatGPT, Gemini e Claude. Sede a Padova, operativi in tutta Italia.",
+  alternates: { canonical: "https://ricercai.it/contatti" },
 };
 
 export default function ContattiPage() {
@@ -168,7 +168,7 @@ export default function ContattiPage() {
               <div className="p-6 rounded-xl border border-border bg-background">
                 <h3 className="font-semibold mb-3">Sede operativa</h3>
                 <address className="not-italic text-sm text-muted space-y-1">
-                  <p>CercAI S.r.l.</p>
+                  <p>RicercAI S.r.l.</p>
                   <p>Padova, Veneto</p>
                   <p>Italia</p>
                 </address>
@@ -180,10 +180,10 @@ export default function ContattiPage() {
                   <p>
                     <span className="text-foreground font-medium">Email:</span>{" "}
                     <a
-                      href="mailto:info@cercai.it"
+                      href="mailto:info@ricercai.it"
                       className="text-accent hover:underline"
                     >
-                      info@cercai.it
+                      info@ricercai.it
                     </a>
                   </p>
                   <p>
