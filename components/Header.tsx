@@ -18,7 +18,7 @@ export default function Header() {
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <span className="text-xl font-bold tracking-tight text-foreground">
-            Cerc<span className="text-accent">AI</span>
+            Ricerc<span className="text-accent">AI</span>
           </span>
         </Link>
 

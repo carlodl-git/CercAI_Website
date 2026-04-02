@@ -8,7 +8,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <span className="text-xl font-bold tracking-tight">
-              Ricerca<span className="text-teal-400">AI</span>
+              Ricerc<span className="text-teal-400">AI</span>
             </span>
             <p className="mt-3 text-sm text-gray-400 leading-relaxed">
               La prima agenzia italiana specializzata in Generative Engine Optimization.
