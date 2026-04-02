@@ -61,6 +61,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://ricercai.it",
   },
+  verification: {
+    google: "1s5UJmsrx2t9J11OHlqUO0KqEsjgOzSUAnuoJXd3tyE",
+  },
 };
 
 export default function RootLayout({
