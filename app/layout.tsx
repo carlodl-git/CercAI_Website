@@ -104,7 +104,7 @@ export default function RootLayout({
       "ChatGPT Optimization",
       "LLM Optimization",
     ],
-    sameAs: [],
+    sameAs: ["https://www.linkedin.com/company/ricercai"],
   };
 
   return (
