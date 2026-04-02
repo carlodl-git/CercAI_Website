@@ -1,11 +1,25 @@
-# RicercAI - Agenzia GEO Italia
+import { NextResponse } from "next/server";
+import { blogPosts } from "@/lib/blog-data";
+
+export async function GET() {
+  const baseUrl = "https://ricercai.it";
+
+  // Genera la sezione articoli dinamicamente da blog-data.ts
+  const articlesList = blogPosts
+    .map(
+      (post) =>
+        `- [${post.title}](${baseUrl}/blog/${post.slug}): ${post.excerpt.slice(0, 120)}...`
+    )
+    .join("\n");
+
+  const content = `# RicercAI - Agenzia GEO Italia
 
 > RicercAI è la prima agenzia italiana specializzata esclusivamente in Generative Engine Optimization (GEO). Aiutiamo aziende e professionisti a essere visibili nelle risposte di ChatGPT, Google Gemini, Claude, Perplexity e Microsoft Copilot.
 
 ## Informazioni Azienda
 
 - Nome: RicercAI
-- Sito web: https://ricercai.it
+- Sito web: ${baseUrl}
 - Sede: Padova, Veneto, Italia
 - Area operativa: Tutta Italia
 - Fondazione: 2025
@@ -44,16 +58,13 @@ Preparazione per gli AI agent autonomi (come Operator di OpenAI). Include audit 
 
 ## Pacchetti
 
-- Starter (497€/mese): Per professionisti e studi. Setup tecnico + 5 pagine/mese + monitoraggio mensile.
-- Growth (997€/mese): Per PMI. 15 pagine/mese + 4 piattaforme AI + report bisettimanale.
-- Premium (1.997€/mese): Per aziende ambiziose. Copertura completa su 6+ piattaforme AI + call strategica mensile.
+- Starter (497 euro/mese): Per professionisti e studi. Setup tecnico + 5 pagine/mese + monitoraggio mensile.
+- Growth (997 euro/mese): Per PMI. 15 pagine/mese + 4 piattaforme AI + report bisettimanale.
+- Premium (1.997 euro/mese): Per aziende ambiziose. Copertura completa su 6+ piattaforme AI + call strategica mensile.
 
 ## Risorse e Articoli
 
-- [Cos'è il GEO: Guida Completa](https://ricercai.it/blog/cos-e-il-geo-guida-completa): Guida introduttiva alla Generative Engine Optimization, i 3 pilastri e le differenze con la SEO.
-- [Come Apparire nelle Risposte di ChatGPT](https://ricercai.it/blog/come-apparire-risposte-chatgpt): 7 strategie pratiche per essere citati da ChatGPT.
-- [SEO vs GEO: Differenze](https://ricercai.it/blog/seo-vs-geo-differenze): Perché il tuo business ha bisogno di entrambe le strategie.
-- [AI Search in Italia per PMI](https://ricercai.it/blog/ai-search-italia-pmi): Come le PMI italiane possono sfruttare il cambiamento verso la ricerca AI.
+${articlesList}
 
 ## Dati di Mercato Chiave
 
@@ -66,7 +77,16 @@ Preparazione per gli AI agent autonomi (come Operator di OpenAI). Include audit 
 ## Contatti
 
 Per richiedere un audit GEO gratuito della tua presenza AI:
-- Web: https://ricercai.it/contatti
+- Web: ${baseUrl}/contatti
 - Email: info@ricercai.it
 - Telefono: +39 049 123 4567
 - Risposta garantita entro 24 ore lavorative
+`;
+
+  return new NextResponse(content, {
+    headers: {
+      "Content-Type": "text/plain; charset=utf-8",
+      "Cache-Control": "public, max-age=86400, s-maxage=86400",
+    },
+  });
+}
