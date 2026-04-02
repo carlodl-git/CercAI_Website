@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { blogPosts } from "@/lib/blog-data";
 import AiLogos from "@/components/AiLogos";
+import BrandName from "@/components/BrandName";
 
 const faqs = [
   {
@@ -65,7 +66,7 @@ export default function Home() {
               Ti trovano?
             </h1>
             <p className="mt-6 text-lg md:text-xl text-muted leading-relaxed max-w-2xl">
-              RicercAI ottimizza la presenza del tuo brand nelle risposte di
+              <BrandName />{" "}ottimizza la presenza del tuo brand nelle risposte di
               ChatGPT, Gemini, Claude e Perplexity. Perché nel 2026 non basta
               essere su Google: devi essere nella risposta dell&apos;AI.
             </p>
@@ -147,7 +148,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-              Come funziona RicercAI
+              Come funziona <BrandName />
             </h2>
             <p className="mt-4 text-lg text-muted">
               Tre fasi per portare il tuo brand nelle risposte AI
@@ -258,7 +259,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-              Perché scegliere RicercAI
+              Perché scegliere <BrandName />
             </h2>
           </div>
 

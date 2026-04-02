@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { blogPosts, getPostBySlug, getAllSlugs } from "@/lib/blog-data";
+import BrandName from "@/components/BrandName";
 
 export function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
@@ -215,7 +216,7 @@ export default async function BlogPostPage({
               {post.excerpt}
             </p>
             <div className="mt-6 flex items-center gap-4 text-sm text-muted">
-              <span>RicercAI</span>
+              <span><BrandName /></span>
               <span>&middot;</span>
               <time dateTime={post.date}>
                 {new Date(post.date).toLocaleDateString("it-IT", {

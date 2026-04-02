@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import BrandName from "@/components/BrandName";
 
 export const metadata: Metadata = {
   title: "Chi Siamo — La Prima Agenzia GEO in Italia",
@@ -19,7 +20,7 @@ export default function ChiSiamoPage() {
               Chi <span className="text-gradient">Siamo</span>
             </h1>
             <p className="mt-6 text-lg text-muted leading-relaxed">
-              RicercAI nasce con una missione chiara: aiutare le aziende italiane
+              <BrandName />{" "}nasce con una missione chiara: aiutare le aziende italiane
               a essere visibili dove i loro clienti stanno iniziando a cercare
               — nelle risposte dell&apos;intelligenza artificiale.
             </p>
@@ -43,7 +44,7 @@ export default function ChiSiamoPage() {
               </p>
               <p className="mt-4 text-muted leading-relaxed">
                 Eppure, quasi nessuna azienda in Italia sta ottimizzando la
-                propria presenza per questi nuovi canali. RicercAI esiste per
+                propria presenza per questi nuovi canali. <BrandName />{" "}esiste per
                 colmare questo gap: siamo la prima agenzia italiana
                 specializzata esclusivamente in{" "}
                 <strong className="text-foreground">
@@ -157,7 +158,7 @@ export default function ChiSiamoPage() {
             Parliamo del tuo brand
           </h2>
           <p className="mt-4 text-lg text-gray-400">
-            Scopri come RicercAI può portare la tua azienda nelle risposte AI.
+            Scopri come <BrandName />{" "}può portare la tua azienda nelle risposte AI.
           </p>
           <Link
             href="/contatti"
