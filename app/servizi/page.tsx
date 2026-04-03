@@ -78,9 +78,182 @@ const services = [
   },
 ];
 
+const providerInfo = {
+  "@type": "LocalBusiness",
+  name: "RicercAI",
+  url: "https://ricercai.it",
+  telephone: "+393402256530",
+  email: "info@ricercai.it",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Padova",
+    addressRegion: "Veneto",
+    addressCountry: "IT",
+  },
+};
+
+const serviceSchemas = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://ricercai.it/servizi#audit",
+    name: "GEO Audit & Strategy",
+    alternateName: "Audit Visibilità AI",
+    description:
+      "Analisi completa della visibilità del brand nelle risposte di ChatGPT, Gemini, Claude e Perplexity. Mappiamo competitor citati, identifichiamo gap e costruiamo una roadmap strategica GEO a 90 giorni.",
+    url: "https://ricercai.it/servizi#audit",
+    provider: providerInfo,
+    areaServed: { "@type": "Country", name: "IT" },
+    serviceType: "Generative Engine Optimization Audit",
+    category: "Digital Marketing",
+    audience: {
+      "@type": "Audience",
+      audienceType: "Aziende che vogliono capire la propria visibilità nelle risposte AI",
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Deliverables GEO Audit",
+      itemListElement: [
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Report presenza AI su ChatGPT, Gemini, Claude e Perplexity" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Analisi competitiva citazioni AI" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Gap analysis visibilità AI" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Roadmap strategica GEO a 90 giorni" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Priorità d'intervento con impatto stimato" } },
+      ],
+    },
+    termsOfService: "https://ricercai.it/contatti",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://ricercai.it/servizi#monitoring",
+    name: "AI Monitoring",
+    alternateName: "Monitoraggio Citazioni AI",
+    description:
+      "Dashboard proprietaria per monitorare in tempo reale le citazioni del brand su ChatGPT, Gemini, Claude e Perplexity. Include AI Mention Share, Citation Quality Score, benchmark competitivo, alert automatici e report mensile con raccomandazioni.",
+    url: "https://ricercai.it/servizi#monitoring",
+    provider: providerInfo,
+    areaServed: { "@type": "Country", name: "IT" },
+    serviceType: "AI Citation Monitoring",
+    category: "Digital Marketing",
+    audience: {
+      "@type": "Audience",
+      audienceType: "Aziende che vogliono misurare e tracciare la propria presenza AI nel tempo",
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Deliverables AI Monitoring",
+      itemListElement: [
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Dashboard personalizzata con aggiornamenti settimanali" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "AI Mention Share: percentuale di citazione sulle query target" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Citation Quality Score: qualità delle menzioni" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Benchmark vs competitor" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Alert automatici su variazioni significative" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Report mensile con analisi e raccomandazioni" } },
+      ],
+    },
+    termsOfService: "https://ricercai.it/contatti",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://ricercai.it/servizi#optimization",
+    name: "Content Optimization",
+    alternateName: "Ottimizzazione Contenuti per AI",
+    description:
+      "Ottimizzazione completa dei contenuti web per massimizzare le citazioni e raccomandazioni da parte dei modelli AI. Include audit contenuti, Schema.org avanzato, digital PR, ottimizzazione directory, creazione contenuti GEO-optimized e coerenza NAP cross-piattaforma.",
+    url: "https://ricercai.it/servizi#optimization",
+    provider: providerInfo,
+    areaServed: { "@type": "Country", name: "IT" },
+    serviceType: "GEO Content Optimization",
+    category: "Digital Marketing",
+    audience: {
+      "@type": "Audience",
+      audienceType: "Aziende che vogliono risultati concreti sulle citazioni AI",
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Deliverables Content Optimization",
+      itemListElement: [
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Audit e ottimizzazione contenuti sito web" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Implementazione Schema.org avanzato" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Strategia digital PR per fonti autorevoli" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Ottimizzazione profili directory e piattaforme" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Creazione contenuti GEO-optimized" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Coerenza NAP cross-piattaforma" } },
+      ],
+    },
+    termsOfService: "https://ricercai.it/contatti",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://ricercai.it/servizi#agent",
+    name: "Agent Readiness",
+    alternateName: "Preparazione per AI Agent Autonomi",
+    description:
+      "Preparazione del brand per gli AI agent autonomi come Operator di OpenAI. Include audit machine-readability, ottimizzazione trust signal, structured data per transazioni automatiche, test di compatibilità con i principali AI agent e piano di preparazione continua.",
+    url: "https://ricercai.it/servizi#agent",
+    provider: providerInfo,
+    areaServed: { "@type": "Country", name: "IT" },
+    serviceType: "AI Agent Readiness Optimization",
+    category: "Digital Marketing",
+    audience: {
+      "@type": "Audience",
+      audienceType: "E-commerce, hospitality e servizi B2C che vogliono essere scelti dagli AI agent",
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Deliverables Agent Readiness",
+      itemListElement: [
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Audit machine-readability del sito web" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Ottimizzazione per AI agent (Operator, OpenAI Agents)" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Trust signal optimization" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Structured data per transazioni automatiche" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Test di compatibilità con principali AI agent" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Piano di preparazione continua" } },
+      ],
+    },
+    termsOfService: "https://ricercai.it/contatti",
+  },
+];
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://ricercai.it",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Servizi GEO",
+      item: "https://ricercai.it/servizi",
+    },
+  ],
+};
+
 export default function ServiziPage() {
   return (
     <>
+      {/* JSON-LD: Individual Service schemas */}
+      {serviceSchemas.map((schema, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
+      {/* JSON-LD: Breadcrumb */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+
       {/* Hero */}
       <section className="py-24 md:py-32 bg-grid">
         <div className="max-w-6xl mx-auto px-6">
