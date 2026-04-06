@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { blogPosts } from "@/lib/blog-data";
+import { getAllPublishedPosts } from "@/lib/blog-data";
 
 export const metadata: Metadata = {
   title: "Blog GEO — Guide e Strategie di Generative Engine Optimization",
@@ -10,7 +10,9 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://ricercai.it/blog" },
 };
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const posts = await getAllPublishedPosts();
+
   return (
     <>
       <section className="py-24 md:py-32 bg-grid">
@@ -31,7 +33,7 @@ export default function BlogPage() {
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {blogPosts.map((post) => (
+            {posts.map((post) => (
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}

@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { blogPosts, getPostBySlug, getAllSlugs } from "@/lib/blog-data";
+import { getAllPublishedPosts, getPostBySlug, getAllSlugs } from "@/lib/blog-data";
 import BrandName from "@/components/BrandName";
 
-export function generateStaticParams() {
-  return getAllSlugs().map((slug) => ({ slug }));
+export async function generateStaticParams() {
+  const slugs = await getAllSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
@@ -15,7 +16,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = await getPostBySlug(slug);
   if (!post) return {};
 
   return {
@@ -34,11 +35,15 @@ export async function generateMetadata({
 
 export default async function BlogPostPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const { preview } = await searchParams;
+  const isPreview = preview === 'true';
+  const post = await getPostBySlug(slug, isPreview);
   if (!post) notFound();
 
   const articleJsonLd = {
@@ -154,7 +159,8 @@ export default async function BlogPostPage({
   };
 
   // Get related posts
-  const relatedPosts = blogPosts
+  const allPosts = await getAllPublishedPosts();
+  const relatedPosts = allPosts
     .filter((p) => p.slug !== post.slug)
     .slice(0, 2);
 
@@ -168,6 +174,13 @@ export default async function BlogPostPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
+
+      {/* Draft banner */}
+      {isPreview && post.status === 'draft' && (
+        <div className="bg-yellow-400 text-yellow-900 text-center py-2 text-sm font-semibold">
+          BOZZA — Questo articolo non è ancora pubblicato
+        </div>
+      )}
 
       {/* Breadcrumb */}
       <div className="bg-white border-b border-border">

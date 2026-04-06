@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { blogPosts } from "@/lib/blog-data";
+import { getAllPublishedPosts } from "@/lib/blog-data";
 import AiLogos from "@/components/AiLogos";
 import BrandName from "@/components/BrandName";
 
@@ -30,7 +30,8 @@ const faqs = [
   },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const posts = await getAllPublishedPosts();
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -370,7 +371,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {blogPosts.slice(0, 2).map((post) => (
+            {posts.slice(0, 2).map((post) => (
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}

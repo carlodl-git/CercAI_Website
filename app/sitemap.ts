@@ -1,10 +1,11 @@
 import type { MetadataRoute } from "next";
-import { blogPosts } from "@/lib/blog-data";
+import { getAllPublishedPosts } from "@/lib/blog-data";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://ricercai.it";
 
-  // Pagine statiche del sito
+  const posts = await getAllPublishedPosts();
+
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/`,
@@ -38,10 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // Pagine blog generate dinamicamente da blog-data.ts
-  // Quando aggiungi un nuovo articolo in lib/blog-data.ts,
-  // la sitemap si aggiorna automaticamente!
-  const blogPages: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+  const blogPages: MetadataRoute.Sitemap = posts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: new Date(post.date),
     changeFrequency: "monthly",

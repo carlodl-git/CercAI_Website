@@ -1,11 +1,13 @@
 import { NextResponse } from "next/server";
-import { blogPosts } from "@/lib/blog-data";
+import { getAllPublishedPosts } from "@/lib/blog-data";
 
 export async function GET() {
   const baseUrl = "https://ricercai.it";
 
-  // Genera la sezione articoli dinamicamente da blog-data.ts
-  const articlesList = blogPosts
+  const posts = await getAllPublishedPosts();
+
+  // Genera la sezione articoli dinamicamente da Supabase
+  const articlesList = posts
     .map(
       (post) =>
         `- [${post.title}](${baseUrl}/blog/${post.slug}): ${post.excerpt.slice(0, 120)}...`
