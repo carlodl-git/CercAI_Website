@@ -1,4 +1,5 @@
 import { createClient } from '@supabase/supabase-js'
+import { revalidatePath } from 'next/cache'
 
 const supabaseAdmin = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -29,6 +30,13 @@ export async function PATCH(request: Request) {
     return Response.json({ error: 'Invalid request' }, { status: 400 })
   }
 
+  // Get the slug before updating (needed for revalidation)
+  const { data: post } = await supabaseAdmin
+    .from('blog_posts')
+    .select('slug')
+    .eq('id', id)
+    .single()
+
   const { error } = await supabaseAdmin
     .from('blog_posts')
     .update({ status, updated_at: new Date().toISOString() })
@@ -36,6 +44,13 @@ export async function PATCH(request: Request) {
 
   if (error) {
     return Response.json({ error: 'Failed to update post' }, { status: 500 })
+  }
+
+  // Revalidate blog pages so changes appear immediately
+  revalidatePath('/blog')
+  revalidatePath('/')
+  if (post?.slug) {
+    revalidatePath(`/blog/${post.slug}`)
   }
 
   return Response.json({ success: true })
@@ -48,6 +63,13 @@ export async function DELETE(request: Request) {
     return Response.json({ error: 'Invalid request' }, { status: 400 })
   }
 
+  // Get the slug before deleting (needed for revalidation)
+  const { data: post } = await supabaseAdmin
+    .from('blog_posts')
+    .select('slug')
+    .eq('id', id)
+    .single()
+
   const { error } = await supabaseAdmin
     .from('blog_posts')
     .delete()
@@ -55,6 +77,13 @@ export async function DELETE(request: Request) {
 
   if (error) {
     return Response.json({ error: 'Failed to delete post' }, { status: 500 })
+  }
+
+  // Revalidate blog pages
+  revalidatePath('/blog')
+  revalidatePath('/')
+  if (post?.slug) {
+    revalidatePath(`/blog/${post.slug}`)
   }
 
   return Response.json({ success: true })

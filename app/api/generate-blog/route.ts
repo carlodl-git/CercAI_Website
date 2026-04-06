@@ -1,4 +1,5 @@
 import { createClient } from '@supabase/supabase-js'
+import { revalidatePath } from 'next/cache'
 
 async function callClaude(prompt: string, apiKey: string): Promise<string> {
   const res = await fetch('https://api.anthropic.com/v1/messages', {
@@ -203,6 +204,13 @@ Rispondi SOLO con un JSON valido (senza markdown code block, senza backtick) con
 
     if (insertError) {
       return Response.json({ error: 'Failed to insert post', details: insertError.message }, { status: 500 })
+    }
+
+    // Revalidate blog pages if published immediately
+    if (publish_immediately) {
+      revalidatePath('/blog')
+      revalidatePath('/')
+      revalidatePath(`/blog/${newPost.slug}`)
     }
 
     return Response.json({
