@@ -71,6 +71,29 @@ export default async function BlogPostPage({
     { name: post.title, url: `https://ricercai.it/blog/${post.slug}` },
   ];
 
+  // Parse inline markdown: bold (**text**) and links ([text](url))
+  const renderInline = (text: string) => {
+    const parts = text.split(/(\*\*.*?\*\*|\[.*?\]\(.*?\))/g);
+    return parts.map((part, j) => {
+      if (part.startsWith("**") && part.endsWith("**")) {
+        return (
+          <strong key={j} className="text-foreground">
+            {part.slice(2, -2)}
+          </strong>
+        );
+      }
+      const linkMatch = part.match(/^\[(.+?)\]\((.+?)\)$/);
+      if (linkMatch) {
+        return (
+          <Link key={j} href={linkMatch[2]} className="text-accent hover:underline">
+            {linkMatch[1]}
+          </Link>
+        );
+      }
+      return part;
+    });
+  };
+
   // Simple markdown-like renderer for the content
   const renderContent = (content: string) => {
     return content
@@ -104,7 +127,7 @@ export default async function BlogPostPage({
             return (
               <li key={i} className="ml-6 text-muted leading-relaxed">
                 <strong className="text-foreground">{boldMatch[1]}</strong>
-                {boldMatch[2]}
+                {renderInline(boldMatch[2])}
               </li>
             );
           }
@@ -112,7 +135,7 @@ export default async function BlogPostPage({
         if (trimmed.startsWith("- ")) {
           return (
             <li key={i} className="ml-6 text-muted leading-relaxed">
-              {trimmed.slice(2)}
+              {renderInline(trimmed.slice(2))}
             </li>
           );
         }
@@ -121,19 +144,9 @@ export default async function BlogPostPage({
         }
 
         // Regular paragraph
-        const parts = trimmed.split(/(\*\*.*?\*\*)/g);
         return (
           <p key={i} className="text-muted leading-relaxed mb-4">
-            {parts.map((part, j) => {
-              if (part.startsWith("**") && part.endsWith("**")) {
-                return (
-                  <strong key={j} className="text-foreground">
-                    {part.slice(2, -2)}
-                  </strong>
-                );
-              }
-              return part;
-            })}
+            {renderInline(trimmed)}
           </p>
         );
       })
@@ -142,9 +155,10 @@ export default async function BlogPostPage({
 
   // Get related posts
   const allPosts = await getAllPublishedPosts();
-  const relatedPosts = allPosts
-    .filter((p) => p.slug !== post.slug)
-    .slice(0, 2);
+  // Prefer same-category posts, then fill with others
+  const sameCategory = allPosts.filter((p) => p.slug !== post.slug && p.category === post.category);
+  const otherPosts = allPosts.filter((p) => p.slug !== post.slug && p.category !== post.category);
+  const relatedPosts = [...sameCategory, ...otherPosts].slice(0, 4);
 
   return (
     <>
@@ -231,17 +245,17 @@ export default async function BlogPostPage({
             <h2 className="text-2xl font-bold tracking-tight mb-8">
               Articoli correlati
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {relatedPosts.map((p) => (
                 <Link
                   key={p.slug}
                   href={`/blog/${p.slug}`}
-                  className="group p-8 rounded-2xl border border-border hover:border-accent/30 hover:shadow-lg transition-all bg-white"
+                  className="group p-6 rounded-2xl border border-border hover:border-accent/30 hover:shadow-lg transition-all bg-white"
                 >
                   <span className="text-xs font-semibold text-accent uppercase tracking-wider">
                     {p.category}
                   </span>
-                  <h3 className="mt-3 text-lg font-semibold group-hover:text-accent transition-colors leading-tight">
+                  <h3 className="mt-3 text-base font-semibold group-hover:text-accent transition-colors leading-tight">
                     {p.title}
                   </h3>
                   <p className="mt-2 text-muted text-sm leading-relaxed line-clamp-2">
