@@ -370,8 +370,8 @@ export default async function Home() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {posts.slice(0, 2).map((post) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {posts.slice(0, 3).map((post) => (
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
@@ -393,12 +393,12 @@ export default async function Home() {
             ))}
           </div>
 
-          <div className="mt-8 text-center md:hidden">
+          <div className="mt-10 text-center">
             <Link
               href="/blog"
-              className="text-accent font-medium hover:underline"
+              className="inline-flex items-center justify-center border border-accent text-accent font-medium px-8 py-3 rounded-lg hover:bg-accent hover:text-white transition-colors text-base"
             >
-              Tutti gli articoli &rarr;
+              Leggi tutti gli articoli
             </Link>
           </div>
         </div>
