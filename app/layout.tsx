@@ -43,12 +43,21 @@ export const metadata: Metadata = {
     title: "RicercAI — Agenzia GEO Italia | Generative Engine Optimization",
     description:
       "Portiamo il tuo brand nelle risposte di ChatGPT, Gemini, Claude e Perplexity. La prima agenzia GEO specializzata in Italia.",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "RicercAI — Agenzia GEO Italia",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "RicercAI — Agenzia GEO Italia",
     description:
       "Portiamo il tuo brand nelle risposte di ChatGPT, Gemini, Claude e Perplexity.",
+    images: ["/opengraph-image"],
   },
   robots: {
     index: true,
