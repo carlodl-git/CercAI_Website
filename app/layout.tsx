@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: "%s | RicercAI",
   },
   description:
-    "RicercAI è la prima agenzia italiana specializzata in GEO (Generative Engine Optimization). Portiamo il tuo brand nelle risposte di ChatGPT, Gemini, Claude e Perplexity. Sede a Padova, operativi in tutta Italia.",
+    "Prima agenzia GEO in Italia. Ottimizziamo la visibilità del tuo brand su ChatGPT, Gemini, Claude e Perplexity. Sede a Padova.",
   keywords: [
     "GEO",
     "Generative Engine Optimization",
