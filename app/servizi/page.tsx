@@ -219,6 +219,62 @@ const serviceSchemas = [
   },
 ];
 
+const serviziFaqs = [
+  {
+    q: "Cosa include un GEO Audit?",
+    a: "Analisi completa della presenza AI del brand su ChatGPT, Gemini, Claude e Perplexity. Include report con score di visibilità, analisi competitor, gap analysis e roadmap strategica.",
+  },
+  {
+    q: "Quanto dura il servizio di AI Monitoring?",
+    a: "Il monitoring è continuativo, con report mensili. Il contratto minimo è trimestrale per avere dati significativi e trend affidabili.",
+  },
+  {
+    q: "Come funziona la Content Optimization per AI?",
+    a: "Analizziamo come i modelli AI interpretano i contenuti del tuo sito, poi ottimizziamo struttura, formato e markup per massimizzare le citazioni nelle risposte AI.",
+  },
+  {
+    q: "Cos'è l'Agent Readiness?",
+    a: "Prepariamo il tuo sito per gli AI Agent, ovvero i sistemi autonomi che navigano, comparano e acquistano per conto degli utenti. Include ottimizzazione API, structured data avanzati e machine-readable content.",
+  },
+];
+
+function ServiziFaq() {
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: serviziFaqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.a,
+      },
+    })),
+  };
+
+  return (
+    <section className="py-24 md:py-32 bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <div className="max-w-3xl mx-auto px-6">
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-center mb-12">
+          Domande frequenti sui servizi
+        </h2>
+        <div className="space-y-6">
+          {serviziFaqs.map((faq) => (
+            <div key={faq.q} className="p-6 rounded-xl border border-border bg-background">
+              <h3 className="font-semibold text-lg">{faq.q}</h3>
+              <p className="mt-3 text-muted leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function ServiziPage() {
   return (
     <>
@@ -306,6 +362,9 @@ export default function ServiziPage() {
           ))}
         </div>
       </section>
+
+      {/* FAQ */}
+      <ServiziFaq />
 
       {/* CTA */}
       <section className="py-24 md:py-32 bg-foreground text-white">
