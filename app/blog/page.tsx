@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { getAllPublishedPosts } from "@/lib/blog-data";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Blog GEO — Guide e Strategie di Generative Engine Optimization",
@@ -15,6 +16,10 @@ export default async function BlogPage() {
 
   return (
     <>
+      <Breadcrumbs items={[
+        { name: "Home", url: "https://ricercai.it" },
+        { name: "Blog", url: "https://ricercai.it/blog" },
+      ]} />
       <section className="py-24 md:py-32 bg-grid">
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-3xl">

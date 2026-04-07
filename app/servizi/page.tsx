@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Servizi GEO — Generative Engine Optimization",
@@ -218,25 +219,6 @@ const serviceSchemas = [
   },
 ];
 
-const breadcrumbJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      name: "Home",
-      item: "https://ricercai.it",
-    },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: "Servizi GEO",
-      item: "https://ricercai.it/servizi",
-    },
-  ],
-};
-
 export default function ServiziPage() {
   return (
     <>
@@ -248,11 +230,10 @@ export default function ServiziPage() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
       ))}
-      {/* JSON-LD: Breadcrumb */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
+      <Breadcrumbs items={[
+        { name: "Home", url: "https://ricercai.it" },
+        { name: "Servizi", url: "https://ricercai.it/servizi" },
+      ]} />
 
       {/* Hero */}
       <section className="py-24 md:py-32 bg-grid">

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import BrandName from "@/components/BrandName";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Chi Siamo — La Prima Agenzia GEO in Italia",
@@ -12,6 +13,10 @@ export const metadata: Metadata = {
 export default function ChiSiamoPage() {
   return (
     <>
+      <Breadcrumbs items={[
+        { name: "Home", url: "https://ricercai.it" },
+        { name: "Chi Siamo", url: "https://ricercai.it/chi-siamo" },
+      ]} />
       {/* Hero */}
       <section className="py-24 md:py-32 bg-grid">
         <div className="max-w-6xl mx-auto px-6">

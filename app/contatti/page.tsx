@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Contatti — Richiedi un GEO Audit Gratuito",
@@ -10,6 +11,10 @@ export const metadata: Metadata = {
 export default function ContattiPage() {
   return (
     <>
+      <Breadcrumbs items={[
+        { name: "Home", url: "https://ricercai.it" },
+        { name: "Contatti", url: "https://ricercai.it/contatti" },
+      ]} />
       <section className="py-24 md:py-32 bg-grid">
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-3xl">

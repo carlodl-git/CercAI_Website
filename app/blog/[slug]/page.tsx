@@ -4,6 +4,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getAllPublishedPosts, getPostBySlug, getAllSlugs } from "@/lib/blog-data";
 import BrandName from "@/components/BrandName";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export async function generateStaticParams() {
   const slugs = await getAllSlugs();
@@ -64,30 +65,11 @@ export default async function BlogPostPage({
     },
   };
 
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: "https://ricercai.it",
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Blog",
-        item: "https://ricercai.it/blog",
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: post.title,
-        item: `https://ricercai.it/blog/${post.slug}`,
-      },
-    ],
-  };
+  const breadcrumbItems = [
+    { name: "Home", url: "https://ricercai.it" },
+    { name: "Blog", url: "https://ricercai.it/blog" },
+    { name: post.title, url: `https://ricercai.it/blog/${post.slug}` },
+  ];
 
   // Simple markdown-like renderer for the content
   const renderContent = (content: string) => {
@@ -170,10 +152,7 @@ export default async function BlogPostPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
+      <Breadcrumbs items={breadcrumbItems} />
 
       {/* Draft banner */}
       {isPreview && post.status === 'draft' && (
@@ -181,26 +160,6 @@ export default async function BlogPostPage({
           BOZZA — Questo articolo non è ancora pubblicato
         </div>
       )}
-
-      {/* Breadcrumb */}
-      <div className="bg-white border-b border-border">
-        <div className="max-w-4xl mx-auto px-6 py-3">
-          <nav className="text-sm text-muted">
-            <Link href="/" className="hover:text-foreground transition-colors">
-              Home
-            </Link>
-            <span className="mx-2">/</span>
-            <Link
-              href="/blog"
-              className="hover:text-foreground transition-colors"
-            >
-              Blog
-            </Link>
-            <span className="mx-2">/</span>
-            <span className="text-foreground">{post.category}</span>
-          </nav>
-        </div>
-      </div>
 
       <article className="pb-16 md:pb-24 bg-white">
         {/* Hero image */}
