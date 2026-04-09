@@ -84,31 +84,20 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = {
+  const organizationJsonLd = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": "https://ricercai.it",
+    "@type": "Organization",
+    "@id": "https://ricercai.it/#organization",
     name: "RicercAI",
+    url: "https://ricercai.it",
+    logo: "https://ricercai.it/opengraph-image",
     description:
       "Prima agenzia italiana specializzata in GEO (Generative Engine Optimization). Ottimizziamo la presenza dei brand nelle risposte dei modelli AI.",
-    url: "https://ricercai.it",
-    email: "info@ricercai.it",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Padova",
-      addressRegion: "Veneto",
-      addressCountry: "IT",
-    },
+    sameAs: ["https://www.linkedin.com/company/ricercai"],
     areaServed: {
       "@type": "Country",
       name: "Italia",
     },
-    serviceType: [
-      "Generative Engine Optimization",
-      "GEO Audit",
-      "AI Monitoring",
-      "Content Optimization",
-    ],
     knowsAbout: [
       "Generative Engine Optimization",
       "GEO",
@@ -116,7 +105,17 @@ export default function RootLayout({
       "ChatGPT Optimization",
       "LLM Optimization",
     ],
-    sameAs: ["https://www.linkedin.com/company/ricercai"],
+  };
+
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://ricercai.it/#website",
+    name: "RicercAI",
+    url: "https://ricercai.it",
+    publisher: {
+      "@id": "https://ricercai.it/#organization",
+    },
   };
 
   return (
@@ -127,7 +126,11 @@ export default function RootLayout({
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </head>
       <body className="min-h-full flex flex-col">

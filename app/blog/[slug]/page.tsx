@@ -62,6 +62,10 @@ export default async function BlogPostPage({
       "@type": "Organization",
       name: "RicercAI",
       url: "https://ricercai.it",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://ricercai.it/opengraph-image",
+      },
     },
   };
 

@@ -9,8 +9,31 @@ export const metadata: Metadata = {
 };
 
 export default function ContattiPage() {
+  const localBusinessJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://ricercai.it/#localbusiness",
+    name: "RicercAI",
+    url: "https://ricercai.it",
+    email: "info@ricercai.it",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Padova",
+      addressRegion: "Veneto",
+      addressCountry: "IT",
+    },
+    areaServed: {
+      "@type": "Country",
+      name: "Italia",
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+      />
       <Breadcrumbs items={[
         { name: "Home", url: "https://ricercai.it" },
         { name: "Contatti", url: "https://ricercai.it/contatti" },
