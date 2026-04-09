@@ -84,6 +84,60 @@ export default async function BlogPostPage({
       }
     : null;
 
+  const howToJsonLd =
+    post.slug === "come-apparire-risposte-chatgpt"
+      ? {
+          "@context": "https://schema.org",
+          "@type": "HowTo",
+          name: post.title,
+          description: post.excerpt,
+          step: [
+            {
+              "@type": "HowToStep",
+              position: 1,
+              name: "Crea contenuti con definizioni chiare",
+              text: "Struttura i tuoi articoli con domande chiare come sottotitoli e risposte immediate nei paragrafi successivi. I modelli AI prediligono contenuti che forniscono definizioni esplicite e risposte dirette.",
+            },
+            {
+              "@type": "HowToStep",
+              position: 2,
+              name: "Ottieni menzioni su fonti autorevoli",
+              text: "Le citazioni su testate giornalistiche, portali di settore, Wikipedia e pubblicazioni accademiche aumentano la probabilita di essere menzionati dai LLM. Investi in digital PR mirate.",
+            },
+            {
+              "@type": "HowToStep",
+              position: 3,
+              name: "Usa dati strutturati Schema.org",
+              text: "Implementa markup Schema.org completo sul tuo sito: Organization, LocalBusiness, Product, FAQ, Review. Questi dati aiutano i modelli AI a comprendere chi sei e cosa fai.",
+            },
+            {
+              "@type": "HowToStep",
+              position: 4,
+              name: "Mantieni coerenza NAP cross-piattaforma",
+              text: "Nome, Indirizzo e Telefono (NAP) devono essere identici su ogni piattaforma: Google Business Profile, sito web, directory, social.",
+            },
+            {
+              "@type": "HowToStep",
+              position: 5,
+              name: "Genera recensioni e testimonianze verificabili",
+              text: "Le recensioni su Google, Trustpilot e piattaforme di settore sono fonti che i modelli AI consultano per formulare raccomandazioni.",
+            },
+            {
+              "@type": "HowToStep",
+              position: 6,
+              name: "Pubblica case study dettagliati",
+              text: "I case study con dati concreti (numeri, percentuali, risultati misurabili) sono il tipo di contenuto che i modelli AI preferiscono citare perche forniscono prove verificabili.",
+            },
+            {
+              "@type": "HowToStep",
+              position: 7,
+              name: "Monitora e adatta continuamente",
+              text: "Utilizza strumenti di AI monitoring per verificare regolarmente come il tuo brand viene citato nelle risposte AI. Adatta la strategia in base ai risultati.",
+            },
+          ],
+        }
+      : null;
+
   const breadcrumbItems = [
     { name: "Home", url: "https://ricercai.it" },
     { name: "Blog", url: "https://ricercai.it/blog" },
@@ -197,6 +251,12 @@ export default async function BlogPostPage({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
+      {howToJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
         />
       )}
       <Breadcrumbs items={breadcrumbItems} />
