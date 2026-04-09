@@ -156,6 +156,35 @@ export default function ChiSiamoPage() {
         </div>
       </section>
 
+      {/* Approfondisci */}
+      <section className="py-16 md:py-20 bg-background">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <h2 className="text-2xl font-bold tracking-tight mb-6">
+            Approfondisci
+          </h2>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/blog/cos-e-il-geo-guida-completa"
+              className="text-sm text-accent hover:underline"
+            >
+              Cos&apos;e il GEO: Guida Completa &rarr;
+            </Link>
+            <Link
+              href="/blog/seo-vs-geo-differenze"
+              className="text-sm text-accent hover:underline"
+            >
+              SEO vs GEO: Differenze e Sinergie &rarr;
+            </Link>
+            <Link
+              href="/blog/ai-search-italia-pmi"
+              className="text-sm text-accent hover:underline"
+            >
+              AI Search Italia: Opportunita per le PMI &rarr;
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-24 md:py-32 bg-foreground text-white">
         <div className="max-w-3xl mx-auto px-6 text-center">

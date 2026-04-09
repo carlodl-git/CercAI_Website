@@ -25,6 +25,7 @@ const services = [
       "Priorità d'intervento con impatto stimato",
     ],
     cta: "Ideale per chi vuole capire il proprio punto di partenza",
+    blogLink: { href: "/blog/geo-audit-analisi-completa-business", label: "Approfondisci: GEO Audit" },
   },
   {
     id: "monitoring",
@@ -42,6 +43,7 @@ const services = [
       "Report mensile con analisi e raccomandazioni",
     ],
     cta: "Ideale per chi vuole misurare e tracciare i progressi",
+    blogLink: { href: "/blog/traffico-ai-converte-meglio-seo", label: "Approfondisci: Traffico AI vs SEO" },
   },
   {
     id: "optimization",
@@ -59,6 +61,7 @@ const services = [
       "Coerenza NAP cross-piattaforma",
     ],
     cta: "Ideale per chi vuole risultati concreti sulle citazioni AI",
+    blogLink: { href: "/blog/come-apparire-risposte-chatgpt", label: "Approfondisci: Apparire su ChatGPT" },
   },
   {
     id: "agent",
@@ -76,6 +79,7 @@ const services = [
       "Piano di preparazione continua",
     ],
     cta: "Ideale per e-commerce, hospitality e servizi B2C",
+    blogLink: { href: "/blog/come-funzionano-ricerche-ai-chatgpt-gemini-perplexity", label: "Approfondisci: Come funzionano le ricerche AI" },
   },
 ];
 
@@ -332,6 +336,14 @@ export default function ServiziPage() {
                 <p className="mt-6 text-sm font-medium text-foreground/60 italic">
                   {service.cta}
                 </p>
+                {service.blogLink && (
+                  <Link
+                    href={service.blogLink.href}
+                    className="mt-4 inline-flex items-center gap-1 text-sm text-accent hover:underline"
+                  >
+                    {service.blogLink.label} &rarr;
+                  </Link>
+                )}
               </div>
               <div>
                 <h3 className="text-sm font-semibold uppercase tracking-wider text-muted mb-4">

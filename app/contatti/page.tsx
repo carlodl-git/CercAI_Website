@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
@@ -234,6 +235,15 @@ export default function ContattiPage() {
                   Sebbene la nostra sede sia a Padova, lavoriamo con clienti
                   in tutta Italia. Il GEO è un servizio completamente digitale.
                 </p>
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <Link href="/servizi" className="text-sm text-accent hover:underline">
+                  Scopri i nostri servizi &rarr;
+                </Link>
+                <Link href="/#faq" className="text-sm text-accent hover:underline">
+                  Leggi le FAQ &rarr;
+                </Link>
               </div>
             </div>
           </div>
