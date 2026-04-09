@@ -6,7 +6,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 export const metadata: Metadata = {
   title: "Chi Siamo — La Prima Agenzia GEO in Italia",
   description:
-    "RicercAI è la prima agenzia italiana specializzata in Generative Engine Optimization. Sede a Padova, operiamo in tutta Italia per portare i brand nelle risposte AI.",
+    "RicercAI: prima agenzia italiana specializzata in Generative Engine Optimization. Sede a Padova, operativi in tutta Italia.",
   alternates: { canonical: "https://ricercai.it/chi-siamo" },
 };
 

@@ -4,7 +4,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 export const metadata: Metadata = {
   title: "Contatti — Richiedi un GEO Audit Gratuito",
   description:
-    "Contatta RicercAI per un audit gratuito della tua presenza AI. Scopri come il tuo brand appare su ChatGPT, Gemini e Claude. Sede a Padova, operativi in tutta Italia.",
+    "Contatta RicercAI per un audit gratuito della tua presenza AI. Scopri come il tuo brand appare su ChatGPT, Gemini e Claude.",
   alternates: { canonical: "https://ricercai.it/contatti" },
 };
 
