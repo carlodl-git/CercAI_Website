@@ -88,6 +88,14 @@ export default async function BlogPostPage({
       }
       const linkMatch = part.match(/^\[(.+?)\]\((.+?)\)$/);
       if (linkMatch) {
+        const isExternal = linkMatch[2].startsWith("http");
+        if (isExternal) {
+          return (
+            <a key={j} href={linkMatch[2]} className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">
+              {linkMatch[1]}
+            </a>
+          );
+        }
         return (
           <Link key={j} href={linkMatch[2]} className="text-accent hover:underline">
             {linkMatch[1]}
