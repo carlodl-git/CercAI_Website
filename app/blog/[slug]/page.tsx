@@ -69,6 +69,21 @@ export default async function BlogPostPage({
     },
   };
 
+  const faqJsonLd = post.faqs?.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: post.faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      }
+    : null;
+
   const breadcrumbItems = [
     { name: "Home", url: "https://ricercai.it" },
     { name: "Blog", url: "https://ricercai.it/blog" },
@@ -178,6 +193,12 @@ export default async function BlogPostPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
       <Breadcrumbs items={breadcrumbItems} />
 
       {/* Draft banner */}

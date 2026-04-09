@@ -13,12 +13,13 @@ export interface BlogPost {
   status: string
   targetKeywords?: string[]
   targetAiQueries?: string[]
+  faqs?: { question: string; answer: string }[]
 }
 
 export async function getAllPublishedPosts(): Promise<BlogPost[]> {
   const { data, error } = await supabase
     .from('blog_posts')
-    .select('slug, title, excerpt, date, read_time, category, image, image_alt, content, status, target_keywords, target_ai_queries')
+    .select('slug, title, excerpt, date, read_time, category, image, image_alt, content, status, target_keywords, target_ai_queries, faqs')
     .eq('status', 'published')
     .order('date', { ascending: false })
 
@@ -37,6 +38,7 @@ export async function getAllPublishedPosts(): Promise<BlogPost[]> {
     status: post.status,
     targetKeywords: post.target_keywords,
     targetAiQueries: post.target_ai_queries,
+    faqs: post.faqs,
   }))
 }
 
@@ -69,6 +71,7 @@ export async function getPostBySlug(slug: string, includeDrafts = false): Promis
     status: data.status,
     targetKeywords: data.target_keywords,
     targetAiQueries: data.target_ai_queries,
+    faqs: data.faqs,
   }
 }
 
