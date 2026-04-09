@@ -22,17 +22,6 @@ export const metadata: Metadata = {
   },
   description:
     "Prima agenzia GEO in Italia. Ottimizziamo la visibilità del tuo brand su ChatGPT, Gemini, Claude e Perplexity. Sede a Padova.",
-  keywords: [
-    "GEO",
-    "Generative Engine Optimization",
-    "agenzia GEO Italia",
-    "agenzia GEO Padova",
-    "ottimizzazione AI",
-    "ChatGPT marketing",
-    "visibilità AI",
-    "SEO AI",
-    "RicercAI",
-  ],
   authors: [{ name: "RicercAI" }],
   creator: "RicercAI",
   openGraph: {
@@ -72,10 +61,6 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "1s5UJmsrx2t9J11OHlqUO0KqEsjgOzSUAnuoJXd3tyE",
-    // TODO: Register at https://www.bing.com/webmasters and replace placeholder
-    other: {
-      "msvalidate.01": "INSERIRE_CODICE_BING_QUI",
-    },
   },
 };
 
