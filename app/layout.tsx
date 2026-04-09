@@ -92,7 +92,6 @@ export default function RootLayout({
     description:
       "Prima agenzia italiana specializzata in GEO (Generative Engine Optimization). Ottimizziamo la presenza dei brand nelle risposte dei modelli AI.",
     url: "https://ricercai.it",
-    telephone: "+390491234567",
     email: "info@ricercai.it",
     address: {
       "@type": "PostalAddress",

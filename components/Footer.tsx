@@ -53,18 +53,13 @@ export default function Footer() {
                   info@ricercai.it
                 </a>
               </p>
-              <p>
-                <a href="tel:+390491234567" className="hover:text-white transition-colors">
-                  +39 049 123 4567
-                </a>
-              </p>
             </address>
           </div>
         </div>
 
         <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-gray-500">
-            &copy; {new Date().getFullYear()} RicercAI S.r.l. &mdash; P.IVA 05XXXXXXXX &mdash; Padova, Italia
+            &copy; {new Date().getFullYear()} RicercAI S.r.l. &mdash; P.IVA in fase di registrazione &mdash; Padova, Italia
           </p>
           <div className="flex items-center gap-6">
             <a

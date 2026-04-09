@@ -191,15 +191,6 @@ export default function ContattiPage() {
                       info@ricercai.it
                     </a>
                   </p>
-                  <p>
-                    <span className="text-foreground font-medium">Tel:</span>{" "}
-                    <a
-                      href="tel:+390491234567"
-                      className="text-accent hover:underline"
-                    >
-                      +39 049 123 4567
-                    </a>
-                  </p>
                 </div>
               </div>
 
