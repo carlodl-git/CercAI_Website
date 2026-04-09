@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://ricercai.it"),
   title: {
-    default: "RicercAI — Agenzia GEO Italia | Generative Engine Optimization",
+    default: "Agenzia GEO Italia — Generative Engine Optimization",
     template: "%s | RicercAI",
   },
   description:

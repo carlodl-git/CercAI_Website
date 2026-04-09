@@ -5,7 +5,7 @@ import { getAllPublishedPosts } from "@/lib/blog-data";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Blog GEO — Guide e Strategie di Generative Engine Optimization",
+  title: "Blog GEO — Guide e Strategie",
   description:
     "Approfondimenti su GEO, AI Search e marketing digitale. Guide pratiche per apparire nelle risposte di ChatGPT, Gemini e Claude.",
   alternates: { canonical: "https://ricercai.it/blog" },
